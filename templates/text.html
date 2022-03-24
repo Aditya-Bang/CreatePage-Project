@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Text Editor
+{% endblock %}
+
+{% block main %}
+    <!-- Create text -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('create_text')">Create Text</button>
+    </div>
+
+    <form action="/create_text" method="post" id='create_text' class="hide">
+        <div class="form-group">
+            Create Text for:
+            <select class="form-control" name="webpage_name" required>
+                <option disabled selected value>Select Webpage</option>
+                {% for webpage in webpage_names %}
+                    <option value="{{ webpage.webpage_name }}">{{ webpage.webpage_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="on" class="form-control" name="text" placeholder="Text" type="text" maxlength = "10000" required>
+        </div>
+
+        <div class="form-group">
+            Name text for reference:
+            <input autocomplete="off" class="form-control" name="text_name" placeholder="Text Name" type="text" maxlength = "32" required>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="text_font" required>
+                <option disabled selected value>Select Font</option>
+                {% for font in fonts %}
+                    <option value="{{ font }}" style="font-family: {{ font }};">{{ font }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="text_color" required>
+                <option disabled selected value>Text Color</option>
+
+                {% for color in colors %}
+                    <option value="{{ color.code }}" style="color: {{ color.code }}; font-weight: bold;">{{ color.color }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="text_size" placeholder="Size" type="number" min="1" max="60" required>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="text_alignment" required>
+                <option disabled selected value>Text Alignment</option>
+
+                <option value="right">Right Aligned</option>
+                <option value="center">Center Aligned</option>
+                <option value="left">Left Aligned</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Create</button>
+        </div>
+    </form>
+
+    <!-- Change Text -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('change_text')">Change Text</button>
+    </div>
+
+    <form action="/change_text" method="post" id='change_text' class="hide">
+
+        <div class="form-group">
+            <select class="form-control" name="text_name" required>
+                <option disabled selected value>Select Text</option>
+                {% for text in text_names %}
+                    <option value="{{ text.text_name }}">{{ text.text_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Leave blank if you do not want to change:
+            <input autocomplete="on" class="form-control" name="text" placeholder="Text" type="text" maxlength = "10000">
+        </div>
+
+        <div class="form-group">
+            Font:
+            <select class="form-control" name="text_font" required>
+                <option selected value="do not change">Do not change</option>
+
+                {% for font in fonts %}
+                    <option value="{{ font }}" style="font-family: {{ font }};">{{ font }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Color:
+            <select class="form-control" name="text_color" required>
+                <option selected value="do not change">Do not change</option>
+
+                {% for color in colors %}
+                    <option value="{{ color.code }}" style="color: {{ color.code }}; font-weight: bold;">{{ color.color }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Leave blank if you do not want to change:
+            <input autocomplete="off" class="form-control" name="text_size" placeholder="Size" type="number" min="1" max="60">
+        </div>
+
+        <div class="form-group">
+            Title Alignment:
+            <select class="form-control" name="text_alignment" required>
+                <option selected value="do not change">Do not change</option>
+
+                <option value="right">Right Aligned</option>
+                <option value="center">Center Aligned</option>
+                <option value="left">Left Aligned</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-warning" type="submit">Change</button>
+        </div>
+    </form>
+
+    <!-- Delete Text -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('delete_text')">Delete Text</button>
+    </div>
+
+    <form action="/delete_text" method="post" id='delete_text' class="hide">
+        <div class="form-group">
+            <select class="form-control" name="text_name" required>
+                <option disabled selected value>Select Text</option>
+                {% for text in text_names %}
+                    <option value="{{ text.text_name }}">{{ text.text_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </div>
+    </form>
+{% endblock %}

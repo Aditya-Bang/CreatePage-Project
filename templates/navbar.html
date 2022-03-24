@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Navbar Editor
+{% endblock %}
+
+{% block main %}
+    <!-- Change Navbar -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('change_navbar')">Change Navbar</button>
+    </div>
+
+    <form action="/change_navbar" method="post" id='change_navbar' class="hide">
+        Navbar Settings:
+
+        <div class="form-group">
+            Width:
+            <input class="form-control" name="navbar_width" type="number" min="50" max="255" value="{{ info.navbar_width}}" required>
+        </div>
+
+        <div class="form-group">
+            Navbar Color:
+            <select class="form-control" name="navbar_color" required>
+                <option selected value="{{ info.navbar_color}}">{{ navbar_color }}</option>
+
+                {% for color in colors %}
+                    <option value="{{ color.code }}" style="color: {{ color.code }}; font-weight: bold;">{{ color.color }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Navbar Link Font:
+            <select class="form-control" name="navlink_font" required>
+                <option selected value="{{ info.navlink_font }}">{{ info.navlink_font }}</option>
+
+                {% for font in fonts %}
+                    <option value="{{ font }}" style="font-family: {{ font }};">{{ font }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Navbar Link Color:
+            <select class="form-control" name="navlink_color" required>
+                <option selected value="{{ info.navlink_color}}">{{ navlink_color }}</option>
+
+                {% for color in colors %}
+                    <option value="{{ color.code }}" style="color: {{ color.code }}; font-weight: bold;">{{ color.color }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            Navbar Link Size:
+            <input class="form-control" name="navlink_size" type="number" min="1" max="128" value="{{ info.navlink_size }}" required>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-warning" type="submit">Change</button>
+        </div>
+    </form>
+
+    <!-- Add Navbar Link -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('add_navlink')">Add Navbar Link</button>
+    </div>
+
+    <form action="/add_navlink" method="post" id='add_navlink' class="hide">
+
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="navlink_name" placeholder="Navlink Name" type="text" maxlength = "32" required>
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="navlink_text" placeholder="Navlink Text" type="text" maxlength = "128" required>
+        </div>
+
+        <div class="form-group">
+            Webpage to link to:
+            <select class="form-control" name="navlink_link" required>
+                <option disabled selected value>Select Webpage</option>
+                {% for webpage in webpages %}
+                    <option value="{{ webpage.webpage_id }}">{{ webpage.webpage_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Create</button>
+        </div>
+    </form>
+
+    <!-- Delete Navbar Link -->
+    <div class="form-group">
+        <button class="btn btn-primary" onclick="toggle_show('delete_navlink')">Delete Navbar Link</button>
+    </div>
+
+    <form action="/delete_navlink" method="post" id='delete_navlink' class="hide">
+        <div class="form-group">
+            <select class="form-control" name="navlink_id" required>
+                <option disabled selected value>Select Navlink</option>
+                {% for navlink in navlinks %}
+                    <option value="{{ navlink.navlink_id }}">{{ navlink.navlink_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <style>
+        .link {
+        	font-family: "Verdana" sans-serif;
+        	font-size: 1.5em;
+        	text-align: center;
+        	color: blue;
+        	background: none;
+        	margin: 0;
+        	padding: 0;
+        	border: none;
+        	cursor: pointer;
+        }
+
+        .link:hover {
+              color: #00FFFF;
+              text-decoration: underline;
+        }
+    </style>
+
+    <form action="/display" method="post">
+        <div class="form-group">
+            {% for webpage in webpages %}
+                <div class="form-group">
+                    <button class="link" type="submit" name="webpage_id" value="{{ webpage.webpage_id }}">{{ webpage.webpage_name }}</button>
+                </div>
+            {% endfor %}
+        </div>
+    </form>
+{% endblock %}
