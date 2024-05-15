@@ -2,7 +2,7 @@
 I created a web-based application that allows users to create and style their own webpages easily and intuitively.
 
 ## Inspiration
-The inspiration for this project came from my own experiences in the course. I found webpage creation challenging and time-consuming, a common issue for many people. My goal with this application is to make the process of creating webpages much more user-friendly and intuitive.
+The inspiration for this project came from my own experiences in the CS50 course. I found webpage creation challenging and time-consuming, a common issue for many people. My goal with this application is to make the process of creating webpages much more user-friendly and intuitive.
 
 ## Features
 
