@@ -1,18 +1,24 @@
-For my final project, I create a web-based application which allows users to create and style their own webpages.
+## CreatePage: Web-Based Application for Webpage Creation
+I created a web-based application that allows users to create and style their own webpages easily and intuitively.
 
-The inspiration for this webpage was the course itself, I found making webpages difficult and it requires a considerable amount of time, which many people do not have.
-My goal for this webpage is to make webpage creation itself much more user friendly and intuative.
+## Inspiration
+The inspiration for this project came from my own experiences in the course. I found webpage creation challenging and time-consuming, a common issue for many people. My goal with this application is to make the process of creating webpages much more user-friendly and intuitive.
 
-How it works:
-Users can create an account where they create multiple webpages that are saved in a database.
-They first have to create the webpage where they choose the background color, and if they want to enable a navbar for that specific page.
-They can add one title at the top of every webpage, choosing styles such as font, color, size, alignment.
-They can add text on any of their webpages, choosing styles such as font, color, size, alignment.
-They can customize their navbar, choosing color, width, navlink size, font and more.
-Each navlink they create can be linked to the webpage of their choosing.
-All your webpages will be on display in the websites homepage.
+## Features
 
-Every aspect of the elements above is easily edited and deleted, making the software as user friendly as possible.
-In the future, I plan on improving this website, allowing users to create more interactive and complex webpages with elements such as tables, forms, buttons and images.
+#### User Accounts:
+Users can create accounts, allowing them to create and manage multiple webpages that are saved in a database. All created webpages are displayed on the application's homepage.
 
-A video demostration of the project: https://www.youtube.com/watch?v=Fbav823qCKg
+#### Webpage Creation:
+
+1. Initial Setup: Users can start by choosing the background color for their webpage and deciding whether to enable a navbar.
+2. Title: Each webpage can have a title at the top, with customizable styles including font, color, size, and alignment.
+3. Text: Users can add text to their webpages with customizable styles such as font, color, size, and alignment.
+4. Navbar Customization: The navbar can be customized in terms of color, width, navlink size, font, and more. Each navlink can be linked to any webpage the user chooses.
+5. Editing and Deletion: Every aspect of the elements mentioned above can be easily edited or deleted, ensuring the software is as user-friendly as possible.
+
+## Future Improvements
+I plan to enhance this application by allowing users to create more interactive and complex webpages, incorporating elements such as tables, forms, buttons, and images.
+
+## Demonstration
+Watch a video demonstration of the project here: https://www.youtube.com/watch?v=Fbav823qCKg
