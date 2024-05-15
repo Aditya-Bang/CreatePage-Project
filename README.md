@@ -7,7 +7,7 @@ How it works:
 Users can create an account where they create multiple webpages that are saved in a database.
 They first have to create the webpage where they choose the background color, and if they want to enable a navbar for that specific page.
 They can add one title at the top of every webpage, choosing styles such as font, color, size, alignment.
-They can add text on any of their webpages, chossing styles such as font, color, size, alignment.
+They can add text on any of their webpages, choosing styles such as font, color, size, alignment.
 They can customize their navbar, choosing color, width, navlink size, font and more.
 Each navlink they create can be linked to the webpage of their choosing.
 All your webpages will be on display in the websites homepage.
