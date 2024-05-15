@@ -1,0 +1,8 @@
+myenv/
+__pycache__/
+createpage.db
+.env
+.flaskenv
+data.sql
+schema.sql
+pgdb/
