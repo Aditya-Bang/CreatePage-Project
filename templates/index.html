@@ -24,6 +24,7 @@
         }
     </style>
 
+    {% if webpages %}
     <form action="/display" method="post">
         <div class="form-group">
             {% for webpage in webpages %}
@@ -33,4 +34,9 @@
             {% endfor %}
         </div>
     </form>
+    {% else %}
+    <div class="message">
+        No webpages found. Get started by creating a webpage via the <strong>Webpage</strong> tab!
+    </div>
+    {% endif %}
 {% endblock %}
